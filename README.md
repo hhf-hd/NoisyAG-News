@@ -3,3 +3,6 @@ Official code and data for the paper: "NoisyAG-News: A Benchmark for Addressing 
 
 
 The code in this repository is licensed under the MIT License. The data (NoisyAG-News dataset) is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License. See LICENSE and LICENSE-DATA.md for details.
+
+
+https://zenodo.org/records/17231970
