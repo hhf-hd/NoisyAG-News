@@ -58,6 +58,7 @@ NoisyAG-News/
 ## 📦 Dataset
 
 We release the **NoisyAG-News** dataset, constructed by collecting **redundant annotations from 60 crowdworkers** on the standard AG-News dataset.
+> **Note:** Due to file size limitations, you need to unzip `NoisyAG-News.zip` to get the `NoisyAG-News.pkl` file.
 
 - The dataset includes:
   - Original AG-News labels
