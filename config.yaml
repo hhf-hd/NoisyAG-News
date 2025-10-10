@@ -1,0 +1,53 @@
+# 通用模型参数
+model:
+  method: LNPL # 选择使用的方法: [WN，LS, NLS, CT, selfMix, expDecay, LNPL ]
+  # pretrained_model_name_or_path: /root/autodl-tmp/bert-base-uncased
+  pretrained_model_name_or_path: bert-base-uncased
+  dropout_rate: 0.1
+  num_classes: 4
+
+# 各种方法的特定参数
+method_args:
+  # SelfMix的参数
+  selfMix:
+    p_threshold: 0.5
+    temp: 0.5
+    alpha: 0.75
+    lambda_p: 0.2
+    lambda_r: 0.3
+    class_reg: false
+    gmm_max_iter: 10
+    gmm_tol: 1.0e-2
+    gmm_reg_covar: 5.0e-4
+    
+  LS:
+    
+    label_smoothing: 0.2
+  NLS:
+    
+    negative_smoothing: 0.2
+  expDecay:
+    exp: 2
+    p_threshold: 0.3
+    temp: 0.5
+    lambda_r: 0.5
+
+    
+# 数据参数
+data:
+  dataset_name: null
+  train_file_path: ./dataset/samples40000trainMed.csv
+  eval_file_path: ./dataset/samples10000valMed.csv
+  test_file_path: ./dataset/samplesTest.csv
+  batch_size: 32
+  batch_size_mix: 16
+  max_sentence_len: 256
+
+# 训练参数
+training:
+  seed: 1
+  train_epochs: 2
+  learning_rate: 1.0e-5
+  warmup_strategy: epoch
+  warmup_epochs: 1
+  warmup_samples: 1000

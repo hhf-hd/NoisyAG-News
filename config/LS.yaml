@@ -1,0 +1,69 @@
+model:
+  dropout_rate: 0.1
+  gpuid: 0
+  num_classes: 4
+  pretrained_model_name_or_path: bert-base-uncased  # albert-base-v2  bert-base-uncased
+
+data:
+  dataMode: test  # [test, training]
+  dataType: GT  # [Worst, Med, Best, GT]
+  batch_size: 32
+  batch_size_mix: 16
+  dataset_name: AG-News
+  saveTrainInfo: True
+  
+  # 测试模式的数据路径
+  test_mode_paths:
+    Worst:
+      train_file: ./dataset/numGroup640/samples640trainWorst.csv
+      eval_file: ./dataset/numGroup640/samples640valWorst.csv
+      test_file: ./dataset/numGroup640/samplesTest640.csv
+    Med:
+      train_file: ./dataset/numGroup640/samples640trainMed.csv
+      eval_file: ./dataset/numGroup640/samples640valMed.csv
+      test_file: ./dataset/numGroup640/samplesTest640.csv
+    Best:
+      train_file: ./dataset/numGroup640/samples640trainBest.csv
+      eval_file: ./dataset/numGroup640/samples640valBest.csv
+      test_file: ./dataset/numGroup640/samplesTest640.csv
+    GT:
+      train_file: ./dataset/numGroup640/samples640trainGT.csv
+      eval_file: ./dataset/numGroup640/samples640valGT.csv
+      test_file: ./dataset/numGroup640/samplesTest640.csv
+
+  # 训练模式的数据路径
+  training_mode_paths:
+    Worst:
+      train_file: ./dataset/numGroup/samples40000trainWorst.csv
+      eval_file: ./dataset/numGroup/samples10000valWorst.csv
+      test_file: ./dataset/numGroup/samplesTest.csv
+    Med:
+      train_file: ./dataset/numGroup/samples40000trainMed.csv
+      eval_file: ./dataset/numGroup/samples10000valMed.csv
+      test_file: ./dataset/numGroup/samplesTest.csv
+    Best:
+      train_file: ./dataset/numGroup/samples40000trainBest.csv
+      eval_file: ./dataset/numGroup/samples10000valBest.csv
+      test_file: ./dataset/numGroup/samplesTest.csv
+    GT:
+      train_file: ./dataset/numGroup/samples40000trainGT.csv
+      eval_file: ./dataset/numGroup/samples10000valGT.csv
+      test_file: ./dataset/numGroup/samplesTest.csv
+
+  max_sentence_len: 128
+
+method:
+  method_name: LS  # 选择使用的方法: [WN，LS, NLS, CT, selfMix, expDecay ]
+  LS:
+    label_smoothing: 0.1
+  
+
+training:
+  learning_rate: 1.0e-05
+  seed: 42 # 随机种子 [ 0 ,1 , 123 ,666 ,42]
+  train_epochs: 8
+  warmup_epochs: 1
+  warmup_samples: 1600
+  warmup_strategy: samples
+  optimizer: adam # [adam, adamw, sgd, rmsprop, adagrad, adadelta]
+
