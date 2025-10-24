@@ -1,6 +1,4 @@
-Of course. Here is the professional, pure English translation of your dataset README file.
 
------
 
 # Guide to `NoisyAG-News.pkl`
 
@@ -95,4 +93,5 @@ y_llm_best = df['SOTA_llm_best_label']
 
 # Get a purely synthetic noise baseline (e.g., uniform Worst)
 y_uniform_worst = df['noise_uniform_worst']
+
 ```
